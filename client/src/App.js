@@ -1,26 +1,19 @@
-
 import './App.css';
-import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import Home from './pages/Home'
+import CreatePost from './pages/CreatePost'
 
 function App() {
-  const [listOfPosts, setListOfPosts] = useState([]);
-
-  useEffect(() => {
-    axios.get("http://localhost:3001/posts").then((response) => {
-      setListOfPosts(response.data);
-    })
-  }, []);
-
   return (
     <div className="App">
-      {listOfPosts.map((value, key) => {
-        return <div className = "post">
-          <div className = "title">{value.title}</div>
-          <div className = "body">{value.postText}</div>
-          <div className = "footer">{value.username}</div>
-        </div>
-      })}
+      <Router>
+        <Link to = "/" style = {{textDecoration: "none", color: "black"}}>Home</Link>
+        <Link to = "/createpost" style = {{textDecoration: "none", color: "black"}}>Create Post</Link>
+        <Routes>
+          <Route path = "/" element = {<Home/>}/> // Adding default home page to the router.
+          <Route path = "/createpost" element = {<CreatePost/>}/> // Adding default home page to the router.
+        </Routes>
+      </Router>
     </div>
   );
 }
