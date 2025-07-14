@@ -2,11 +2,14 @@ import React from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup' // This package is used to validate the form.
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 // Field = (id: for css, name: needs to be same with database name, placeholder: for user to know what to input)
 // button = (type: submit) 
 
 function CreatePost() {
+
+  let navigate = useNavigate();
 
   const initialValues = {
     title: "",
@@ -15,9 +18,8 @@ function CreatePost() {
   };
 
   const onSubmit = (data) => {
-    axios.post("http://localhost:3001/posts", data).then((response) => {
-        console.log("Worked");
-    })
+    axios.post("http://localhost:3001/posts", data).then((response) => {navigate("/");})
+    
   }
 
   const validationSchema = Yup.object().shape({
