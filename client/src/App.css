@@ -177,7 +177,6 @@ span {
 
 .leftside
 {
-  margin: 100%;
   flex: 50%;
   height: calc(100vh - 70px);
   display: grid;
@@ -186,14 +185,19 @@ span {
 }
 .rightSide {
   flex: 50%;
-  height: calc(100vh - 70px);
+  height: 700px;
+  width: 600px;
+  
+  margin-top: 50px;
+  background-color: rgb(13, 13, 31);
   display: grid;
   place-items: center;
+  box-shadow: 7px 7px 10px rgb(46, 35, 66);
 }
 #individual {
   height: 700px;
   width: 800px;
-  margin-right: 700px;
+  margin-right: 250px;
 }
 
 #individual .title,
@@ -203,6 +207,45 @@ span {
 
 #individual .body {
   font-size: 25px;
+}
+
+.createCommentContainer 
+{
+  margin-top: 30%;
+  width: 400px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  place-content: center;
+  background-color: black;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.createCommentContainer input
+{
+  width: 55%;
+  height: 50px;
+  box-shadow: 5px 5px 25px gray;
+  margin-right: 20px;
+}
+.createCommentContainer button
+{
+  width: 25%;
+  height: 50px;
+  box-shadow: 5px 5px 25px gray;
+}
+
+.listOfComments .comment
+{
+  width: 550px;
+  height: 20px;
+  margin-top: 20px;
+  background-color: rgb(101, 106, 124);
+  display: grid;
+  place-content: center;
+  color: lightcyan;
+  text-shadow: 1px 1px 10px darkcyan;
+  box-shadow: 2px 2px 10px gray;
 }
 
 
